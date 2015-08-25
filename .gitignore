@@ -58,3 +58,6 @@ target/
 
 # IDE
 *.idea
+
+# source
+source/*/*.md
