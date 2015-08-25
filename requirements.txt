@@ -1,3 +1,4 @@
 bottle==0.12.8
 bottle-mongo==0.3.0
 Jinja2==2.8
+PyYAML==3.11
