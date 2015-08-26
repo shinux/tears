@@ -14,7 +14,7 @@ tag_collection = db.tags
 about_collection = db.about
 link_collection = db.link
 
-basedir = basedir + '/source/'
+basedir += '/source/'
 
 
 def get_all_file(target='posts'):
@@ -80,5 +80,5 @@ def generate_posts():
 
 
 if __name__ == '__main__':
-    #print(get_all_file('posts'))
+    # print(get_all_file('posts'))
     generate_posts()
