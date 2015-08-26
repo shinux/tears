@@ -61,3 +61,6 @@ target/
 
 # source
 source/*/*.md
+
+# mac file
+.DS_Store
