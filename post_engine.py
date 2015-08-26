@@ -5,8 +5,6 @@ import yaml
 import pymongo
 from tears import basedir
 
-# about = [a for a in listdir(basedir + '/source/about')]
-# works = [w for w in listdir(basedir + '/source/works')]
 
 client = pymongo.MongoClient("localhost", 27017)
 db = client.tears
@@ -30,6 +28,8 @@ def check_file(posts):
 
 # generate posts
 def generate_posts():
+    # TODO: better check the files and backup the old file then insert
+    client.drop_database('tears')
 
     category_dict = {}
     tag_dict = {}
