@@ -19,8 +19,11 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 # Template location
 TEMPLATE_PATH.append(basedir + "/templates")
 
+###############################################################################
+# filters ######################################################################
+###############################################################################
 
-# Template setting
+
 def datetime_to_date(datetime):
     return str(datetime)[:10]
 
@@ -29,6 +32,10 @@ def markdown(string):
     return markdown2.markdown(string, extras=["fenced-code-blocks"])
 
 
+def generate_post_url():
+    return
+
+# Template filter and setting
 template_settings = dict(filters={"datetime_to_date": datetime_to_date,
                                   "markdown": markdown})
 template = partial(jinja2_template, template_settings=template_settings)
@@ -39,6 +46,20 @@ app.install(plugin)
 
 client = pymongo.MongoClient("localhost", 27017)
 db = client.tears
+
+
+###############################################################################
+# core #########################################################################
+###############################################################################
+
+@app.route('/static/<file_type>/<filename>')
+def serve_static(file_type, filename):
+    return static_file(filename, root=basedir + '/static/' + file_type)
+
+
+@app.error(404)
+def error404(error):
+    return 'Nothing here, sorry'
 
 
 @app.route('/')
@@ -63,19 +84,24 @@ def index(page_num=1):
                     later=page_num - 1)
 
 
-@app.route('/post/<name>', name='posts')
-def posts(post):
+@app.route('/post/<year>/<month>/<day>/<name>')
+def posts(year, month, day, name):
     pass
 
 
-@app.route('/static/<file_type>/<filename>')
-def serve_static(file_type, filename):
-    return static_file(filename, root=basedir + '/static/' + file_type)
+@app.route('/achieve')
+def achieve():
+    pass
 
 
-@app.error(404)
-def error404(error):
-    return 'Nothing here, sorry'
+@app.route('/tag/<tag_name>')
+def tag(tag_name):
+    pass
+
+
+@app.route('/category/<category_name>')
+def category(category_name):
+    pass
 
 
 if __name__ == '__main__':

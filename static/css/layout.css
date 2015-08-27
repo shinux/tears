@@ -57,6 +57,26 @@ a {
     background-color: transparent;
 }
 
+a:link {
+    text-decoration: none;
+    color: #555;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #555;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #555;
+}
+
+a:active {
+    text-decoration: none;
+    color: #555;
+}
+
 pre {
     border: 1px solid #ffffff;
 }
@@ -77,6 +97,7 @@ pre {
 .post-title {
     text-align: center;
     font-size: 26px;
+    color: #555;
 }
 
 .post-meta {
