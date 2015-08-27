@@ -10,7 +10,6 @@ from bson.json_util import dumps
 import pymongo
 import markdown2
 
-
 app = Bottle()
 
 
@@ -27,7 +26,8 @@ def datetime_to_date(datetime):
 
 
 def markdown(string):
-    return markdown2.markdown(string)
+    return markdown2.markdown(string, extras=["fenced-code-blocks"])
+
 
 template_settings = dict(filters={"datetime_to_date": datetime_to_date,
                                   "markdown": markdown})
@@ -36,7 +36,6 @@ template = partial(jinja2_template, template_settings=template_settings)
 # Database
 plugin = MongoPlugin(uri='mongodb://127.0.0.1', db='tears', json_mongo=True)
 app.install(plugin)
-
 
 client = pymongo.MongoClient("localhost", 27017)
 db = client.tears
@@ -48,7 +47,6 @@ def index():
     post_list = []
     for p in db.posts.find().sort("date", -1):
         post_list.append(p)
-    print(post_list)
     return template('index.html', posts=post_list[:5])
 
 

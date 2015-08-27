@@ -24,6 +24,10 @@ a {
     background-color: transparent;
 }
 
+pre {
+    border: 1px solid #ffffff;
+}
+
 .main {
     padding-bottom: 150px
 }
@@ -56,9 +60,9 @@ a {
 .post-eof {
     display: block;
     margin: 160px auto 120px;
-    width: 8%;
+    /*width: 8%;*/
     height: 1px;
-    background: #ccc;
+    /*background: #ccc;*/
     text-align: center;
 }
 
@@ -96,4 +100,30 @@ a {
 
 .glyphicon-heart-empty {
     margin: 0 5px;
+}
+
+.line-sp {
+    margin:0 auto;
+    height: 20px;
+    width: 320px;
+}
+.line-sp span {
+    display: block;
+    float: right;
+}
+
+.line-sp-1, .line-sp-4 {
+    width: 100px;
+    height: 1px;
+    margin: 8px 0 14px 8px;
+    background-color: #ccc;
+}
+
+.line-sp-2 {
+    width: 35px;
+    height: 18px;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-right: 10px;
 }
