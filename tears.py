@@ -43,14 +43,27 @@ db = client.tears
 
 @app.route('/')
 @app.route('/index')
-def index():
+@app.route('/posts/<page_num:int>')
+def index(page_num=1):
     post_list = []
     for p in db.posts.find().sort("date", -1):
         post_list.append(p)
-    return template('index.html', posts=post_list[:5])
+    page_size = 5
+    if len(post_list) % page_size == 0 and post_list:
+        total = len(post_list) // page_size
+    else:
+        total = len(post_list) // page_size + 1
+    print(total)
+    final_list = post_list[(page_num - 1) * page_size: page_num * page_size]
+    return template('index.html',
+                    posts=final_list,
+                    page_num=page_num,
+                    total=total,
+                    earlier=page_num + 1,
+                    later=page_num - 1)
 
 
-@app.route('/posts/<category>', name='posts')
+@app.route('/post/<name>', name='posts')
 def posts(post):
     pass
 

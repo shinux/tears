@@ -109,6 +109,24 @@ pre {
     color: #999;
 }
 
+.pagination {
+    margin: 80px 0 0;
+    border-top: 1px solid #eee;
+    width: 700px;
+    display: block;
+}
+
+.glyphicon-chevron-right {
+    text-align: center;
+    float: right;
+    height: 12px;
+}
+
+.glyphicon-chevron-left {
+    text-align: left;
+    float: left;
+}
+
 .footer-inner {
     margin: 20px auto;
     width: 700px;
@@ -122,7 +140,7 @@ pre {
     right: 50px;
     z-index: 1050;
     width: 15px;
-    height: 13px;
+    height: 33px;
     padding: 5px;
     font-size: 24px;
     /*background: #222;*/
@@ -131,32 +149,10 @@ pre {
     -webkit-transform: translateZ(0);
 }
 
+.glyphicon-triangle-top {
+    display: none;
+}
+
 .glyphicon-heart-empty {
     margin: 0 5px;
-}
-
-.line-sp {
-    margin:0 auto;
-    height: 20px;
-    width: 320px;
-}
-.line-sp span {
-    display: block;
-    float: right;
-}
-
-.line-sp-1, .line-sp-4 {
-    width: 100px;
-    height: 1px;
-    margin: 8px 0 14px 8px;
-    background-color: #ccc;
-}
-
-.line-sp-2 {
-    width: 35px;
-    height: 18px;
-    border-left: 1px solid #ccc;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    margin-right: 10px;
 }
