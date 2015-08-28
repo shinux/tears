@@ -173,12 +173,13 @@ pre {
 .glyphicon-chevron-right {
     text-align: center;
     float: right;
-    height: 12px;
+    margin-top: 10px;
 }
 
 .glyphicon-chevron-left {
     text-align: left;
     float: left;
+    margin-top: 10px;
 }
 
 .footer-inner {
