@@ -8,6 +8,7 @@ from bottle import jinja2_template
 from bottle import TEMPLATE_PATH
 from bottle import route, get, redirect, post, request, static_file, error, response, abort
 from bottle.ext.mongo import MongoPlugin
+from bson.objectid import ObjectId
 from bson.json_util import dumps
 
 
@@ -121,7 +122,12 @@ def tag(tag_name):
 
 @app.route('/category/<category_name>')
 def category(category_name):
-    pass
+    current_category = db.categories.find_one({'name': category_name})
+    ids = current_category.get('posts')
+    post_list = []
+    for p in db.posts.find({"_id": {"$in": ids}}):
+        post_list.append(p)
+    return template('category.html', posts=post_list, category_name=category_name)
 
 
 @app.route('/about')

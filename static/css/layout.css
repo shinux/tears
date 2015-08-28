@@ -298,11 +298,13 @@ pre {
     clear: both;
 }
 
-table {
-    margin-left: 90px;
-    height: 190px;
+.category-title {
+    font-size: 24px;
+    height: 50px
 }
 
-table td {
-    padding:0;
+.category-content {
+    height: 35px;
+    margin-left: 200px;
+    text-align: left;
 }
