@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sinux's Tears</title>
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/layout.css" rel="stylesheet">
+  <link href="/static/css/pygments.css" rel="stylesheet">
+</head>
+<body>
+  <div id="head" class="head">
+      <div class="header-inner">
+      </div>
+  </div>
+  <div id="main" class="main">
+      <div id="content" class="content">
+          {% block content %}
+          {% endblock %}
+      </div>
+  </div>
+
+  <div id="footer" class="footer">
+      <div class="footer-inner">
+          <div class="copyright">©&nbsp;2015&nbsp; nsinux@gmail.com &nbsp;|&nbsp;
+              Powered by <a href="https://github.com/shnode/tears">Tears</a>
+          </div>
+      </div>
+  </div>
+
+  <div class="back-to-top">
+      <span class="glyphicon glyphicon-triangle-top" onclick="backToTop()"></span>
+  </div>
+
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/tears.js"></script>
+</body>
+</html>

@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Sinux's Tears</title>
-  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/layout.css" rel="stylesheet">
-  <link href="/static/css/pygments.css" rel="stylesheet">
-</head>
-<body>
-  <div id="head" class="head">
-      <div class="header-inner">
-      </div>
-  </div>
+{% extends "base.html" %}
 
-  <div id="main" class="main">
-    <div id="content" class="content">
+{% block content %}
     {% for i in posts %}
         <div class="posts">
             <div class="post-header">
@@ -26,7 +12,7 @@
                         {% for tag in i.tags -%}
                             {{ tag }}&nbsp;
                         {%- endfor %}
-                        </span>
+                    </span>
                 </div>
             </div>
             <div class="post-body">{{ i.content|markdown }}</div>
@@ -39,33 +25,12 @@
             </div>
         </div>
     {% endfor %}
-        <div class="pagination">
-            {% if page_num != total %}
-            <span class="glyphicon glyphicon-chevron-left">&nbsp;<a href="/posts/{{ earlier }}">earlier</a></span>
-            {% endif %}
-            {% if page_num != 1 %}
-            <span class="glyphicon glyphicon-chevron-right">&nbsp;<a href="/posts/{{ later }}">later</a></span>
-            {% endif %}
-        </div>
+    <div class="pagination">
+        {% if page_num != total %}
+        <a href="/posts/{{ earlier }}"><span class="glyphicon glyphicon-chevron-left">&nbsp;earlier</span></a>
+        {% endif %}
+        {% if page_num != 1 %}
+        <a href="/posts/{{ later }}"><span class="glyphicon glyphicon-chevron-right">&nbsp;later</span></a>
+        {% endif %}
     </div>
-
-  </div>
-
-  <div id="footer" class="footer">
-      <div class="footer-inner">
-          <div class="copyright">©&nbsp;2015&nbsp;
-              <span class="glyphicon glyphicon-heart-empty">&nbsp;Sinux</span>
-              Powered by <a href="https://github.com/shnode/tears">Tears</a>
-          </div>
-      </div>
-  </div>
-
-  <div class="back-to-top">
-      <span class="glyphicon glyphicon-triangle-top" onclick="backToTop()"></span>
-  </div>
-
-  <script src="/static/js/jquery.min.js"></script>
-  <script src="/static/js/bootstrap.min.js"></script>
-  <script src="/static/js/tears.js"></script>
-</body>
-</html>
+{% endblock %}

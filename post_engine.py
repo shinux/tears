@@ -1,8 +1,9 @@
 import os
-from os import listdir
-from os.path import isfile, join
 import yaml
 import pymongo
+from os import listdir
+from os.path import isfile, join
+
 from tears import basedir
 
 

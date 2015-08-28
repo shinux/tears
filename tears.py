@@ -1,14 +1,15 @@
 import os
 import json
+import pymongo
+import markdown2
 from functools import partial
 from bottle import Bottle
 from bottle import jinja2_template
 from bottle import TEMPLATE_PATH
-from bottle import route, get, redirect, post, request, static_file, error, response
+from bottle import route, get, redirect, post, request, static_file, error, response, abort
 from bottle.ext.mongo import MongoPlugin
 from bson.json_util import dumps
-import pymongo
-import markdown2
+
 
 app = Bottle()
 
@@ -66,15 +67,16 @@ def error404(error):
 @app.route('/index')
 @app.route('/posts/<page_num:int>')
 def index(page_num=1):
+    page_size = 5
     post_list = []
     for p in db.posts.find().sort("date", -1):
         post_list.append(p)
-    page_size = 5
     if len(post_list) % page_size == 0 and post_list:
         total = len(post_list) // page_size
     else:
         total = len(post_list) // page_size + 1
-    print(total)
+    if page_num > total:
+        abort(404, "No such database.")
     final_list = post_list[(page_num - 1) * page_size: page_num * page_size]
     return template('index.html',
                     posts=final_list,
@@ -102,6 +104,15 @@ def tag(tag_name):
 @app.route('/category/<category_name>')
 def category(category_name):
     pass
+
+
+@app.route('/about')
+def about():
+    _about = db.about.find_one()
+    if _about:
+        return template('about.html', about=_about)
+    else:
+        return template('about.html')
 
 
 if __name__ == '__main__':
