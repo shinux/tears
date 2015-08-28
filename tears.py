@@ -88,12 +88,20 @@ def index(page_num=1):
 
 @app.route('/post/<year>/<month>/<day>/<name>')
 def posts(year, month, day, name):
-    pass
+    url = '/' + year + '/' + month + '/' + day + '/' + name
+    current_post = db.posts.find_one({'url': url})
+    return template('index.html',
+                    posts=[current_post],
+                    total=1,
+                    page_num=1,
+                    earlier=1,
+                    later=0)
 
 
 @app.route('/achieve')
 def achieve():
-    pass
+    posts = db.posts.find().sort("date", -1)
+    return template('achieve.html')
 
 
 @app.route('/tag/<tag_name>')
@@ -113,6 +121,15 @@ def about():
         return template('about.html', about=_about)
     else:
         return template('about.html')
+
+
+@app.route('/link')
+def link():
+    _link = db.link.find_one()
+    if _link:
+        return template('link.html', link=_link)
+    else:
+        return template('link.html')
 
 
 if __name__ == '__main__':

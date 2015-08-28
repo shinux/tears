@@ -6,7 +6,6 @@ from os.path import isfile, join
 
 from tears import basedir
 
-
 client = pymongo.MongoClient("localhost", 27017)
 db = client.tears
 post_collection = db.posts
@@ -20,6 +19,11 @@ basedir += '/source/'
 
 def get_all_file(target='posts'):
     return [basedir + target + '/' + i for i in listdir(basedir + target)]
+
+
+def generate_url(date, full_file_path):
+    file_name = full_file_path.split('/')[-1].split('.')[0]
+    return '/' + str(date.year) + '/' + str(date.month) + '/' + str(date.day) + '/' + file_name
 
 
 def check_file(posts):
@@ -45,6 +49,7 @@ def generate_posts():
                 _dict = yaml.load(_stream.split('---')[0])
                 _content = _stream.split('---')[1]
                 _dict.update({'content': _content})
+                _dict.update({'url': generate_url(_dict.get('date'), stream.name)})
                 post_id = post_collection.insert_one(_dict).inserted_id
                 current_category = _dict.get('categories')
                 if current_category:
@@ -77,7 +82,7 @@ def generate_posts():
     else:
         with open(link[0], 'r') as stream:
             _stream = stream.read()
-            link_collection.insert_one({'conteng': _stream})
+            link_collection.insert_one({'content': _stream})
 
 
 if __name__ == '__main__':

@@ -44,9 +44,42 @@ body {
 .header-inner {
     position: relative;
     margin: 0 auto;
-    padding: 100px 0 70px;
+    padding: 100px 0 20px;
     width: 700px;
-    height: 288px;
+    height: 200px;
+}
+
+.head-content {
+    display: inline-block;
+    float: none;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.head-content a {
+    border-bottom: none;
+}
+
+.head-left {
+    display: inline-block;
+    float: left;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+.head-right {
+    display: inline-block;
+    float: right;
+    margin-right: 70px;
+    margin-top: 10px;
+
+}
+
+.menu {
+    display: inline-block;
+    width: 700px;
+    margin: 0;
+    height: 120px;
 }
 
 a {
@@ -176,4 +209,62 @@ pre {
 
 .glyphicon-heart-empty {
     margin: 0 5px;
+}
+
+.glyphicon-tag {
+    float: left;
+    margin-left: 240px;
+    margin-top: 12px;
+}
+
+.glyphicon-th-list {
+    float: left;
+    margin-left: 30px;
+    margin-top: 12px;
+}
+
+.glyphicon-home {
+    float: left;
+    margin-left: 40px;
+    margin-top: 4px;
+    font-size: 24px;
+}
+
+.glyphicon-user {
+    float: left;
+    margin-left: 40px;
+    margin-top: 12px;
+}
+
+.glyphicon-console {
+    float: left;
+    margin-left: 30px;
+    margin-top: 12px;
+}
+
+.search-label {
+    display: block;
+}
+
+.search {
+    border: none;
+    border-radius: 0;
+    width: 140px;
+    border-bottom: 1px solid #999;
+    opacity: 0.5;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    float: left;
+    margin-left: 10px;
+    display: none;
+}
+
+
+table {
+    margin-left: 90px;
+    height: 190px;
+}
+
+table td {
+    padding:0;
 }
