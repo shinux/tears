@@ -100,8 +100,18 @@ def posts(year, month, day, name):
 
 @app.route('/achieve')
 def achieve():
-    posts = db.posts.find().sort("date", -1)
-    return template('achieve.html')
+    final_dict = {}
+    for p in db.posts.find().sort("date", -1):
+        year = p.get('date').year
+        if year in final_dict:
+            final_dict[year].append({'url': p.get('url'), 'title': p.get('title')})
+        else:
+            final_dict[year] = []
+            final_dict[year].append({'url': p.get('url'), 'title': p.get('title')})
+    total = db.posts.find().count()
+    years = len(final_dict)
+    time_line_height = 50 * total + 75 * years
+    return template('achieve.html', achieves=final_dict, height=time_line_height)
 
 
 @app.route('/tag/<tag_name>')

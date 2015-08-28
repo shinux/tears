@@ -211,7 +211,7 @@ pre {
     margin: 0 5px;
 }
 
-.glyphicon-tag {
+.glyphicon-link {
     float: left;
     margin-left: 240px;
     margin-top: 12px;
@@ -259,6 +259,44 @@ pre {
     display: none;
 }
 
+.achieve-time-line {
+    width: 2px;
+    /*height: 400px;*/
+    color: #222;
+    background: gray;
+    margin-left: 100px;
+    float: left;
+}
+
+.achieve-date-line {
+    float: left;
+    width: 50px;
+    height: 2px;
+    margin-top: 50px;
+    background: gray;
+    /*margin-left: 100px;*/
+}
+
+.achieve-date {
+    float: left;
+    width: 50px;
+    margin-top: 30px;
+    height: 50px;
+    font-size: 24px;
+    margin-left: 25px;
+}
+
+.achieve-content {
+    float: left;
+    width: 500px;
+    height: 50px;
+    margin-left: 75px;
+    text-align: left;
+}
+
+.clear-fix {
+    clear: both;
+}
 
 table {
     margin-left: 90px;
