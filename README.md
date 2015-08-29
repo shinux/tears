@@ -16,20 +16,20 @@ I love [next](https://github.com/iissnan/hexo-theme-next) cause you may found so
 
 suppose you have mongodb installed in your system
 
-```shell
+```bash
     pip install -r requirements.txt
 ```
 
 write your articles in /source
 
-```shell
+```bash
     python post_engine.py
     python tears.py
 ```
 
 then access the url
 
-```shell
+```bash
     open "http://localhost:8080"
 ```
 
