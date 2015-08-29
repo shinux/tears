@@ -309,3 +309,10 @@ pre {
     margin-left: 200px;
     text-align: left;
 }
+
+.input {
+	display: none;
+}
+.input:focus {
+	display: inline-block;
+}

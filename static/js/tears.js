@@ -12,16 +12,6 @@ $(window).on('scroll', function() {
 	}
 });
 
-
-function showSearchField() {
-	if ($('.search').css("display") == 'none') {
-		$('.search').show();
-        $('.search').trigger('focus');
-	} else {
-		$('.search').hide();
-	}
-}
-
 $(function() {
 	$('.search').bind('keypress', function(event) {
 		if (event.keyCode == "13" && $('.search').val()) {
@@ -33,3 +23,14 @@ $(function() {
 $('.search').on('blur', function() {
 	$(this).hide();
 });
+
+function showSearchField() {
+	if ($('.search').css("display") == 'none') {
+		$('.search').show();
+        $('.search').trigger('focus');
+	} else {
+        //$('.search').unbind('blur');
+		$('.search').hide();
+	}
+}
+
