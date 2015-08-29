@@ -61,7 +61,7 @@ def serve_static(file_type, filename):
 
 @app.error(404)
 def error404(error):
-    return 'Nothing here, sorry'
+    return template('error.html')
 
 
 @app.route('/')

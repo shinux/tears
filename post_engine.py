@@ -28,7 +28,14 @@ def generate_url(date, full_file_path):
 
 def check_file(posts):
     """check file then drop collection and insert into database"""
-    # TODO
+    posts = get_all_file('posts')
+    for post in posts:
+        with open(post, 'r') as stream:
+            _stream = stream.read()
+            if len(_stream.split('---', 1)) < 1:
+                print('error on --- split between ')
+                return False
+            _dict = yaml.load(_stream.split('---', 1)[0])
 
 
 # generate posts
@@ -46,8 +53,8 @@ def generate_posts():
         for post in posts:
             with open(post, 'r') as stream:
                 _stream = stream.read()
-                _dict = yaml.load(_stream.split('---')[0])
-                _content = _stream.split('---')[1]
+                _dict = yaml.load(_stream.split('---', 1)[0])
+                _content = _stream.split('---', 1)[1]
                 _dict.update({'content': _content})
                 _dict.update({'url': generate_url(_dict.get('date'), stream.name)})
                 post_id = post_collection.insert_one(_dict).inserted_id
