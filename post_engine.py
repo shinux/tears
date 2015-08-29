@@ -1,4 +1,5 @@
 import os
+import sys
 import yaml
 import pymongo
 from os import listdir
@@ -101,7 +102,50 @@ def generate_posts():
             link_collection.insert_one({'content': _stream})
 
 
+def main():
+    if len(sys.argv) < 2:
+        valid = check_file()
+        if valid:
+            generate_posts()
+        return
+    if sys.argv[1] in ['-h', 'help', '-help']:
+        print("""
+        Tears command line:
+
+        -i init -init : check if not exist initiate the source dictionary.
+
+        -h help -hlep : show help
+
+        -c create -create [file name]: create a post md file in /posts folder.
+
+        -g generate -generate: generate blog insert markdown file into the mongo.
+
+                """)
+        return
+    if sys.argv[1] in ['-i', 'init', '-init']:
+        if not os.path.exists(basedir):
+            os.makedirs(basedir + '/about')
+            os.makedirs(basedir + '/link')
+            os.makedirs(basedir + '/posts')
+        return
+    if sys.argv[1] in ['-c', 'create', '-create']:
+        if len(sys.argv) < 2:
+            print('you have not specify the post name')
+            return
+        else:
+            file_name = sys.argv[2].split('.')[0] + '.md'
+            if os.path.isfile(basedir + '/posts/' + file_name):
+                print('{name} is already exist'.format(name=file_name))
+                return
+            else:
+                file = open(basedir + '/posts/' + file_name, 'w+')
+                print('file {name} generate successfully'.format(name=file_name))
+                return
+    if sys.argv[1] in ['-g', 'generate', '-generate']:
+        valid = check_file()
+        if valid:
+            generate_posts()
+        return
+
 if __name__ == '__main__':
-    valid = check_file()
-    if valid:
-        generate_posts()
+    main()
