@@ -16,13 +16,13 @@ I love [next](https://github.com/iissnan/hexo-theme-next) cause you may found so
 
 suppose you have mongodb installed in your system
 
-```python
+```shell
     pip install -r requirements.txt
 ```
 
 write your articles in /source
 
-```python
+```shell
     python post_engine.py
     python tears.py
 ```
