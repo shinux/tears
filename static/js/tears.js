@@ -1,6 +1,6 @@
 
 function backToTop() {
-    $('html, body').animate({scrollTop:0}, 'slow');
+    $('html, body').stop().animate({scrollTop:0}, 'slow');
 }
 
 
@@ -15,16 +15,21 @@ $(window).on('scroll', function() {
 
 function showSearchField() {
 	if ($('.search').css("display") == 'none') {
-		$('.search').show()
+		$('.search').show();
+        $('.search').trigger('focus');
 	} else {
-		$('.search').hide()
+		$('.search').hide();
 	}
 }
 
 $(function() {
 	$('.search').bind('keypress', function(event) {
-		if(event.keyCode == "13") {
+		if (event.keyCode == "13" && $('.search').val()) {
 			window.open('https://www.google.com.hk/search?q=site:sinux.me%20' + $('.search').val() + '&gws_rd=cr,ssl');
 		}
 	});
+});
+
+$('.search').on('blur', function() {
+	$(this).hide();
 });
