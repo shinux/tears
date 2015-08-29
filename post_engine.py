@@ -26,16 +26,27 @@ def generate_url(date, full_file_path):
     return '/' + str(date.year) + '/' + str(date.month) + '/' + str(date.day) + '/' + file_name
 
 
-def check_file(posts):
+def check_file():
     """check file then drop collection and insert into database"""
     posts = get_all_file('posts')
-    for post in posts:
+    link = get_all_file('link')
+    about = get_all_file('about')
+    for post in posts + link + about:
         with open(post, 'r') as stream:
             _stream = stream.read()
             if len(_stream.split('---', 1)) < 1:
                 print('error on --- split between ')
                 return False
             _dict = yaml.load(_stream.split('---', 1)[0])
+            if '---' in _dict.get('title'):
+                print('--- is not available in title')
+                return False
+            content = _stream.split('---', 1)[1]
+            if not content.replace(' ', '').replace(' ', ''):
+                print('content in {name} is blank'.format(name=stream.name))
+                return False
+
+    return True
 
 
 # generate posts
@@ -93,5 +104,6 @@ def generate_posts():
 
 
 if __name__ == '__main__':
-    # print(get_all_file('posts'))
-    generate_posts()
+    valid = check_file()
+    if valid:
+        generate_posts()
