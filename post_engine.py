@@ -29,9 +29,7 @@ def generate_url(date, full_file_path):
 def check_file():
     """check file then drop collection and insert into database"""
     posts = get_all_file('posts')
-    link = get_all_file('link')
-    about = get_all_file('about')
-    for post in posts + link + about:
+    for post in posts:
         with open(post, 'r') as stream:
             _stream = stream.read()
             if len(_stream.split('---', 1)) < 1:
