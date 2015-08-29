@@ -3,10 +3,11 @@
 
 > A bottle of Tears
 
-[Demo](http://sinux.cc/)
-
 **tears** (support Python3 only) is a pure clean blog, powered by bottle.
 I love [next](https://github.com/iissnan/hexo-theme-next) cause you may found some dim shape of it's layout.
+
+
+[Demo Preview | 预览](http://sinux.cc/)
 
 ![](https://github.com/shnode/tears/raw/master/demo.png)
 
