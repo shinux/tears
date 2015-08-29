@@ -316,3 +316,8 @@ pre {
 .input:focus {
 	display: inline-block;
 }
+
+.full-image {
+    display: block;
+    margin: 0 -13%;
+}
