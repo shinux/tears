@@ -16,22 +16,28 @@ I love [next](https://github.com/iissnan/hexo-theme-next) cause you may found so
 
 suppose you have mongodb installed in your system
 
+```python
     pip install -r requirements.txt
+```
 
 write your articles in /source
 
+```python
     python post_engine.py
     python tears.py
+```
 
 then access the url
 
+```shell
     open "http://localhost:8080"
+```
 
 you may modify some personal information
 
-## contribute
+## Contribute
 
-every fix and advice is welcomed
+Any advice is welcomed
 
 ## License
 MIT
