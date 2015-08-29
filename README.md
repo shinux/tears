@@ -22,6 +22,7 @@ I love [next](https://github.com/iissnan/hexo-theme-next) cause you may found so
 suppose you have mongodb installed in your system
 
 ```bash
+    git clone git@github.com:shnode/tears.git
     pip install -r requirements.txt
 ```
 
