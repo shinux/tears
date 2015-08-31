@@ -1,6 +1,6 @@
 # tears
 
-> A bottle of Tears
+> A bottle of tears
 
 **tears** (support Python3 only) is a pure clean blog (engine), powered by bottle.
 
@@ -14,7 +14,7 @@ I love [next](https://github.com/iissnan/hexo-theme-next) cause you may found so
 - tears keep simple and clean both in interface and backend, focus on content
 - all backend code in one file to follow bottle's style
 - posts with raw markdown files, just back up `source` folder periodically
-- contains a `post_engine` which check .md files and insert them into mongoDB
+- contains a `post_engine` which check markdown files and insert them into mongoDB
 - work best in the latest desktop and mobile browsers (because of bootstrap)
 
 ## Usage
@@ -58,6 +58,8 @@ finally we generate the post and insert into mongoDB, and access the url:
 
 ```
     python post_engine.py -g
+    
+    python tears.py
 
     open "http://localhost:8080"
 ```
