@@ -66,9 +66,7 @@ finally we generate the post and insert into mongoDB, and access the url:
 
 you may modify some personal information
 
-## Contribute
 
-Any advice is welcomed
 
 ## License
 
