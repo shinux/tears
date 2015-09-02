@@ -7,6 +7,7 @@ from os.path import isfile, join
 
 from tears import basedir
 
+
 client = pymongo.MongoClient("localhost", 27017)
 db = client.tears
 post_collection = db.posts

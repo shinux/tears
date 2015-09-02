@@ -64,6 +64,11 @@ def error404(error):
     return template('error.html')
 
 
+@app.error(500)
+def error500(error):
+    return template('error.html')
+
+
 @app.route('/')
 @app.route('/index')
 @app.route('/posts/<page_num:int>')
@@ -91,12 +96,10 @@ def index(page_num=1):
 def posts(year, month, day, name):
     url = '/' + year + '/' + month + '/' + day + '/' + name
     current_post = db.posts.find_one({'url': url})
-    return template('index.html',
-                    posts=[current_post],
-                    total=1,
-                    page_num=1,
-                    earlier=1,
-                    later=0)
+    print(url)
+    return template('post.html',
+                    post=current_post,
+                    )
 
 
 @app.route('/achieve')
