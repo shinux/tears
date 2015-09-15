@@ -319,5 +319,6 @@ pre {
 
 .full-image {
     display: block;
+    width: 126%;
     margin: 0 -13%;
 }
