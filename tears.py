@@ -102,8 +102,8 @@ def posts(year, month, day, name):
                     )
 
 
-@app.route('/achieve')
-def achieve():
+@app.route('/archive')
+def archive():
     final_dict = {}
     for p in db.posts.find().sort("date", -1):
         year = p.get('date').year
@@ -115,7 +115,7 @@ def achieve():
     total = db.posts.find().count()
     years = len(final_dict)
     time_line_height = 50 * total + 75 * years
-    return template('achieve.html', achieves=final_dict, height=time_line_height)
+    return template('archive.html', archives=final_dict, height=time_line_height)
 
 
 @app.route('/tag/<tag_name>')
