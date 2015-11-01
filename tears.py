@@ -128,7 +128,7 @@ def category(category_name):
     current_category = db.categories.find_one({'name': category_name})
     ids = current_category.get('posts')
     post_list = []
-    for p in db.posts.find({"_id": {"$in": ids}}):
+    for p in db.posts.find({"_id": {"$in": ids}}).sort("date", -1):
         post_list.append(p)
     return template('category.html', posts=post_list, category_name=category_name)
 
