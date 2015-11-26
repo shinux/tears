@@ -6,7 +6,7 @@
 
 I love [next](https://github.com/iissnan/hexo-theme-next) cause you may found some dim shapes of it's layout.
 
-[Demo Preview | 预览](http://sinux.cc/)
+[Demo Preview | 预览](http://sinux.me/)
 
 ![](https://github.com/shnode/tears/raw/master/demo.png)
 
