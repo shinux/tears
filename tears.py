@@ -54,9 +54,9 @@ db = client.tears
 # core #########################################################################
 ###############################################################################
 
-@app.route('/static/<file_type>/<filename>')
-def serve_static(file_type, filename):
-    return static_file(filename, root=basedir + '/static/' + file_type)
+@app.route('/static/:filename#.*#')
+def serve_static(filename):
+     return static_file(filename, root='./static/')
 
 
 @app.error(404)
