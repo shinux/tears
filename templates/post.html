@@ -1,5 +1,9 @@
 {% extends "index.html" %}
 
+{% block page_title %}
+    <title>{{ post.title }}</title>
+{% endblock %}
+
 {% block content %}
     <div class="posts">
         <div class="post-header">
