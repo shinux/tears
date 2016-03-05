@@ -11,7 +11,7 @@ I love [next](https://github.com/iissnan/hexo-theme-next) cause you may found so
 ![](https://github.com/shnode/tears/raw/master/demo.png)
 
 
-- tears keep simple and clean both in interface and backend, focus on content
+- tears keeps simple and clean both in interface and backend, focus on content
 - all backend code in one file to follow bottle's style
 - posts with raw markdown files, just back up `source` folder periodically
 - contains a `post_engine` which check markdown files and insert them into mongoDB
@@ -38,7 +38,7 @@ create your post:
     python post_engine.py -c [your file name]
 ```
 
-then edit your post markdown file, you must follow the form below, or tears will give you syntax error:
+then edit your post markdown file, you must follow the form below(yaml), or tears will give you syntax error:
 
 ```
     title: this is a example
@@ -54,17 +54,17 @@ then edit your post markdown file, you must follow the form below, or tears will
 
 ```
 
-finally we generate the post and insert into mongoDB, and access the url:
+finally we insert posts into mongoDB, then access the url:
 
 ```
     python post_engine.py -g
-    
+
     python tears.py
 
     open "http://localhost:8080"
 ```
 
-you may modify some personal information
+ps: you may modify some personal information
 
 
 
