@@ -1,15 +1,12 @@
 import os
-import json
 import pymongo
 import markdown2
 from functools import partial
 from bottle import Bottle
 from bottle import jinja2_template
 from bottle import TEMPLATE_PATH
-from bottle import route, get, redirect, post, request, static_file, error, response, abort
+from bottle import static_file, abort
 from bottle.ext.mongo import MongoPlugin
-from bson.objectid import ObjectId
-from bson.json_util import dumps
 
 
 app = Bottle()
@@ -56,7 +53,7 @@ db = client.tears
 
 @app.route('/static/:filename#.*#')
 def serve_static(filename):
-     return static_file(filename, root='./static/')
+    return static_file(filename, root='./static/')
 
 
 @app.error(404)

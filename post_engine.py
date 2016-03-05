@@ -3,7 +3,6 @@ import sys
 import yaml
 import pymongo
 from os import listdir
-from os.path import isfile, join
 
 from tears import basedir
 
@@ -139,7 +138,7 @@ def main():
                 print('{name} is already exist'.format(name=file_name))
                 return
             else:
-                file = open(basedir + '/posts/' + file_name, 'w+')
+                open(basedir + '/posts/' + file_name, 'w+')
                 print('file {name} generate successfully'.format(name=file_name))
                 return
     if sys.argv[1] in ['-g', 'generate', '-generate']:
